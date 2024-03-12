@@ -13,11 +13,13 @@ export const TodoForm = () => {
     if (inputValue.trim() !== "") {
       const newData = {
         title: inputValue,
+        completed: false,
       };
       await dispatch(addTodo(newData));
       await dispatch(getData());
     }
   };
+
   return (
     <form>
       <Input

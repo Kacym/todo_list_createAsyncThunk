@@ -18,6 +18,13 @@ export const deleteTodo = createAsyncThunk("deleteTodo", async (id) => {
   return response;
 });
 
+export const updateTodo = createAsyncThunk("updateTodo", async (task) => {
+  const response = (
+    await axios.patch(`${url}/${task._id}`, { completed: !task.completed })
+  ).data;
+  return response;
+});
+
 const todoSlice = createSlice({
   name: "todo-slice",
   initialState: {
